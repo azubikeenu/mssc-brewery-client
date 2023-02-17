@@ -26,4 +26,15 @@ class BreweryClientTest {
     assertThat(savedBeer).isNotNull();
     assertThat(savedBeer.getBeerName()).isEqualTo(newBeer.getBeerName());
   }
+
+  @Test
+  void updateExistingBeer() {
+    final BeerDto updatedBeer = BeerDto.builder().beerName("Star").build();
+    breweryClient.updateExistingBeer(UUID.randomUUID(), updatedBeer);
+  }
+
+  @Test
+  void deleteExistingBeer(){
+    breweryClient.deleteExistingBeer(UUID.randomUUID());
+  }
 }
